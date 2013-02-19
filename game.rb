@@ -5,30 +5,30 @@
 # 3. Any live cell with more than three live neighbors dies, as if by overcrowding.
 # 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-# class Grid
 
-#   cell1 = [0,0]
-#   cell2 = [0,1]
-#   cell3 = [0,-1]
+class Neighbors
 
-# end
+  attr_accessor :north, :northeast, :east, :southeast, :south, :southwest, :west, :northwest
 
-# class Neighbors
+  def initialize(x, y)
+    @north = [x, y+1]
+    @northeast = [x+1, y+1]
+    @east = [x+1, y]
+    @southeast = [x+1, y-1]
+    @south = [x, y-1]
+    @southwest = [x-1, y-1]
+    @west = [x-1, y]
+    @northwest = [x-1, y+1]
+  end
 
-#   def neighbors
-#     [@north, @northeast, @east, @southeast, @south, @southwest, @west, @northwest]
-#   end
+  neighbor_scan =
+    {@north => 1, @northeast => 1, @east => 1, @southeast => 0, @south => 0, @southwest => 0, @west => 0, @northwest => 0}
 
-#   # this is a test hash:
-#   # neighbors = {[1,1] => true, [1,0] => false, [1,-1] => false, [0,1] => false, [0,-1] => false, [-1,0] => false, [-1,1] => true, [-1,-1] => true}
+  neighbors = neighbor_scan.values.count(1)
 
-#   neighbor_count = 0
+  puts neighbors
 
-#   while neighbors.has_value?(true)
-#     neighbor_count = (neighbor_count + 1)
-#   end
-
-# end
+end
 
 class Cell
 
@@ -50,38 +50,6 @@ class Cell
     else
       true
     end
-  end
-
-  def north
-    [x, y+1]
-  end
-
-  def northeast
-    [x+1, y+1]
-  end
-
-  def east
-    [x+1, y]
-  end
-
-  def southeast
-    [x+1, y-1]
-  end
-
-  def south
-    [x, y-1]
-  end
-
-  def southwest
-    [x-1, y-1]
-  end
-
-  def west
-    [x-1, y]
-  end
-
-  def northwest
-    [x-1, y+1]
   end
 
   def born

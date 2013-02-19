@@ -1,14 +1,14 @@
-# spec.rb
+# gol_spec.rb
 
 require './game.rb'
 
 describe 'Cell' do
-  it "should return not be alive if neighbors < 2" do
+  it "should not be alive if neighbors < 2" do
     cell = Cell.new(4,5,1)
     cell.alive.should == false
   end
 
-  it "should return not be alive if neighbors > 3" do
+  it "should not be alive if neighbors > 3" do
     cell = Cell.new(4,5,5)
     cell.alive.should == false
   end
