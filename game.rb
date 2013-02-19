@@ -8,7 +8,7 @@
 
 class Neighbors
 
-  attr_accessor :north, :northeast, :east, :southeast, :south, :southwest, :west, :northwest
+  # attr_accessor :north, :northeast, :east, :southeast, :south, :southwest, :west, :northwest
 
   def initialize(x, y)
     @north = [x, y+1]
@@ -26,38 +26,30 @@ class Neighbors
 
   neighbors = neighbor_scan.values.count(1)
 
-  puts neighbors
-
 end
 
 class Cell
 
-  attr_accessor :x, :y, :neighbors
+  @@coordinates = {}
 
-  def initialize(x, y, neighbors)
-    @x = x.to_i
-    @y = y.to_i
-    @neighbors = neighbors.to_i
+  def initialize(x = 0, y = 0)
+    @@coordinates = { :x => x, :y => y }
   end
 
-  def alive
-    if neighbors < 2 
-      false
-    elsif neighbors > 3
-      false
-    elsif neighbors == 3
-      true
-    else
-      true
-    end
+  def position
+    @@coordinates
   end
 
-  def born
-    if neighbors == 3
-      true
-    else
-      false
-    end
+  def alive?(neighbors)
+    neighbors == 2 or neighbors == 3
+  end
+
+  def born?(neighbors)
+    neighbors == 3
+  end
+
+  def neighbor_count(neighbors)
+    1
   end
 
 end

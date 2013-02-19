@@ -3,32 +3,29 @@
 require './game.rb'
 
 describe 'Cell' do
-  it "should not be alive if neighbors < 2" do
-    cell = Cell.new(4,5,1)
-    cell.alive.should == false
+  it "should not be alive if it has fewer than 2 neighbors" do
+    cell = Cell.new
+    cell.alive?(1).should == false
   end
 
-  it "should not be alive if neighbors > 3" do
-    cell = Cell.new(4,5,5)
-    cell.alive.should == false
+  it "should not be alive if it has more than 3 neighbors" do
+    cell = Cell.new
+    cell.alive?(4).should == false
   end
 
-  it "should return true if neighbors = 2 or 3" do
-    cell = Cell.new(4,5,2)
-    cell.alive.should == true
+  it "should remain alive if it has 2 or 3 neighbors" do
+    cell = Cell.new
+    cell.alive?(2).should == true
   end
 
-  it "should be born if neighbors = 3" do
-    cell = Cell.new(4,5,3)
-    cell.born.should == true
+  it "should be born if it has exactly 3 neighbors" do
+    cell = Cell.new
+    cell.born?(3).should == true
   end
 
-  it "should have a neighbors with x and y values based on their relationship to it" do
-    cell = Cell.new(0,0,2)
-    cell.north.should == [0,1]
-    cell.south.should == [0,-1]
-    cell.east.should == [1,0]
-    cell.west.should == [-1,0]
+  it "should count 1 neighbor if it has 1 neighbor" do
+    cell = Cell.new
+    cell.neighbor_count(1).should == 1
   end
 
 end
