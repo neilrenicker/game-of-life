@@ -1,4 +1,6 @@
-# Run rspec tests
+# spec.rb
+
+require './game.rb'
 
 describe 'Cell' do
   it "should return not be alive if neighbors < 2" do

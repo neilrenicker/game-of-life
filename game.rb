@@ -13,22 +13,22 @@
 
 # end
 
-class Neighbors
+# class Neighbors
 
-  def neighbors
-    [@north, @northeast, @east, @southeast, @south, @southwest, @west, @northwest]
-  end
+#   def neighbors
+#     [@north, @northeast, @east, @southeast, @south, @southwest, @west, @northwest]
+#   end
 
-  # this is a test hash:
-  # neighbors = {[1,1] => true, [1,0] => false, [1,-1] => false, [0,1] => false, [0,-1] => false, [-1,0] => false, [-1,1] => true, [-1,-1] => true}
+#   # this is a test hash:
+#   # neighbors = {[1,1] => true, [1,0] => false, [1,-1] => false, [0,1] => false, [0,-1] => false, [-1,0] => false, [-1,1] => true, [-1,-1] => true}
 
-  neighbor_count = 0
+#   neighbor_count = 0
 
-  while neighbors.has_value?(true)
-    neighbor_count = (neighbor_count + 1)
-  end
+#   while neighbors.has_value?(true)
+#     neighbor_count = (neighbor_count + 1)
+#   end
 
-end
+# end
 
 class Cell
 
