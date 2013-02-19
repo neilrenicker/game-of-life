@@ -11,9 +11,17 @@ class Game
     cell = Cell.new
   end
 
+  cells = ()
+
+  def add_cell(cell)
+    cells << cell
+  end
+
 end
 
 class Cell
+
+  coordinates = {}
 
   @@coordinates = {}
 
