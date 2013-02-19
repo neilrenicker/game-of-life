@@ -28,4 +28,20 @@ describe 'Cell' do
     cell.neighbor_count(1).should == 1
   end
 
+  it "should count 2 neighbors if it has 2 neighbors" do
+    cell = Cell.new
+    cell.neighbor_count(2).should == 2
+  end
+
+end
+
+describe 'Game' do
+  xit "should be able to create a new cell" do
+    game = Game.new
+    cell.alive?(2) == true
+  end
+
+  xit "should know the location of all live cells" do
+    game = Game.new
+  end
 end
