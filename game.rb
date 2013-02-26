@@ -7,21 +7,28 @@
 
 class Game
 
+  @@cells = []
+
   def initialize
     cell = Cell.new
+    @@cells = add_cell(cell)
   end
 
-  cells = ()
-
   def add_cell(cell)
-    cells << cell
+    @@cells.push(cell)
+  end
+
+  def cells
+    @@cells
+  end
+
+  def cell_count
+    cells.count
   end
 
 end
 
 class Cell
-
-  coordinates = {}
 
   @@coordinates = {}
 
@@ -46,25 +53,3 @@ class Cell
   end
 
 end
-
-# class Neighbors
-
-#   attr_accessor :north, :northeast, :east, :southeast, :south, :southwest, :west, :northwest
-
-#   def initialize(x, y)
-#     @north = [x, y+1]
-#     @northeast = [x+1, y+1]
-#     @east = [x+1, y]
-#     @southeast = [x+1, y-1]
-#     @south = [x, y-1]
-#     @southwest = [x-1, y-1]
-#     @west = [x-1, y]
-#     @northwest = [x-1, y+1]
-#   end
-
-#   neighbor_scan =
-#     {@north => 1, @northeast => 1, @east => 1, @southeast => 0, @south => 0, @southwest => 0, @west => 0, @northwest => 0}
-
-#   neighbors = neighbor_scan.values.count(1)
-
-# end

@@ -36,12 +36,9 @@ describe 'Cell' do
 end
 
 describe 'Game' do
-  xit "should be able to create a new cell" do
+  it "should be able to create a new cell" do
     game = Game.new
-    cell.alive?(2) == true
+    game.cell_count.should >= 1
   end
 
-  xit "should know the location of all live cells" do
-    game = Game.new
-  end
 end
