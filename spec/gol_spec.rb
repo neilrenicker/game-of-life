@@ -41,4 +41,9 @@ describe 'Game' do
     game.cell_count.should >= 1
   end
 
+  xit "should be able to to list the coordinates of its live cells" do
+    game = Game.new()
+    game.cell_list.should == [{x => 0, y => 0}]
+  end
+
 end
